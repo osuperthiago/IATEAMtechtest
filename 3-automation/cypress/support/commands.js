@@ -40,16 +40,31 @@ Cypress.Commands.overwrite('visit', (originalFn, url, options) => {
     })  
 });
 
-
-
-Cypress.Commands.add('searchCellPhone', (cellPhone) => {
-  //cy.get(selector).invoke("removeAttr","target").click();
-  cy.get("#sb1_text").type(cellPhone);
-  cy.get('.autocomplete-short').click();
-})
-
+// command para visitar a pagina e clicar em comparar
 Cypress.Commands.add('visitAndCompare', () => {
   //cy.get(selector).invoke("removeAttr","target").click();
   cy.visit("https://www.tudocelular.com/");
   cy.contains("Compare").click();
+})
+
+// command procurar a entrada de nomes de celulares e clicar no nome que aparece
+// delay pois meu pc as vezes ficava lento
+Cypress.Commands.add('searchCellPhone', (cellPhone) => {
+  cy.get("#sb1_text").type(cellPhone);
+  cy.wait(1000)
+  cy.get('.autocomplete-short').click();
+  cy.wait(1000)
+})
+
+//verifica se ha disponibilidade pela classe aviso e, se houver,
+//busca os preços de cada celular e imprime o melhor preço
+Cypress.Commands.add('priceCheck', () => {
+    cy.get('a.bubble_costo').each((cell, index) => {
+      if (cell.hasClass('aviso')) {
+        cy.log(`O celular ${index + 1} não está disponível`);
+      } else {
+        const text = cell.find('strong').text();
+        cy.log(`O celular ${index + 1} tem melhor preço a R$ ${text}`);
+      }
+    })
 })
