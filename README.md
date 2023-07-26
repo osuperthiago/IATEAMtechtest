@@ -37,7 +37,7 @@
 5 - Rodar o comando: npx cypress open<br>
 6 - Clicar em E2E Testing.<br>
 7 - Clicar em um um navegador e depois em Start E2E Testing.<br>
-8 - Clicar em Cenário1.cy.js.<br>
+8 - Clicar em C1.cy.js<br>
 9 - Observar a automação em curso.<br>
 
 OBS: Instalação do VSC:
