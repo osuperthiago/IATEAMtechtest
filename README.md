@@ -12,7 +12,7 @@
 
 2 - Baixar:  **Pasta do GIT**
 
-1 - Baixar a pa pasta do projeto no Github.<br>
+1 - Baixar a pasta do projeto no Github.<br>
 2 - Abrir: https://github.com/osuperthiago/IATEAMtechtest.<br>
 3 - Clicar em "code".<br>
 4 - Clicar em Download ZIP.<br>
